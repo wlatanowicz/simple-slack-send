@@ -22,7 +22,7 @@ jobs:
 
     - name: Set version
       run: |
-        echo -n ${GITHUB_REF} | cut -f3- -d/ > ./slack_send/VERSION
+        echo -n ${GITHUB_REF} | cut -f3- -d/ > ./simple_slack_send/VERSION
 
     - name: Build a 📦
       run: |

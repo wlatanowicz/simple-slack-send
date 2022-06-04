@@ -39,7 +39,7 @@ jobs:
 
     - name: Check with black
       run: |
-        python -m black --check slack_send
+        python -m black --check simple_slack_send
 
     - name: Test with pytest
       run: |

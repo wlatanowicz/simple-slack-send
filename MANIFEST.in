@@ -1,4 +1,4 @@
-include slack_send/VERSION
+include simple_slack_send/VERSION
 recursive-include requirements *.txt
 
 recursive-exclude * __pycache__

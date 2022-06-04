@@ -36,14 +36,14 @@ def get_about():
     """Parses __init__ on main module in search of all dunder names"""
     regex = re.compile(r"^__\w+__\s*=.*$")
     about = dict()
-    with open("slack_send/__init__.py", "r") as f:
+    with open("simple_slack_send/__init__.py", "r") as f:
         dunders = list()
         for l in f.readlines():
             if regex.match(l):
                 dunders.append(l)
         exec("\n".join(dunders), about)
 
-    with open(path.join(path.dirname(__file__), "slack_send", "VERSION")) as f:
+    with open(path.join(path.dirname(__file__), "simple_slack_send", "VERSION")) as f:
         about["__version__"] = f.read().strip()
 
     return about
@@ -52,16 +52,16 @@ about = get_about()
 
 
 setup(
-    name="Slack-Send",
+    name="Simple Slack Send",
     version=about["__version__"],
-    description="Slack-Send - send Slack notifications in CI pipelines",
-    url="http://github.com/wlatanowicz/slack-send",
+    description="Simple Slack Send - send Slack notifications in CI pipelines",
+    url="http://github.com/wlatanowicz/simple-slack-send",
     author=about["__author__"],
-    author_email="slack-send@wiktor.latanowicz.com",
+    author_email="simple-slack-send@wiktor.latanowicz.com",
     license="MIT",
     long_description=long_description(),
     long_description_content_type="text/markdown",
-    packages=find_packages(exclude=["tests*", "docker-examples"]),
+    packages=find_packages(exclude=["tests*"]),
     zip_safe=False,
     install_requires=reqs("base.txt"),
     tests_require=reqs("tests.txt"),
@@ -75,7 +75,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'slack-send = slack_send.__main__:main'
+            'simple-slack-send = simple_slack_send.__main__:main'
         ]
     },
 )

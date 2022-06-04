@@ -4,7 +4,7 @@ import re
 
 import requests
 
-from slack_send.loader import VarsLoader, json_file_to_dict
+from simple_slack_send.loader import VarsLoader, json_file_to_dict
 
 
 def check_var(ctx, param, value):
